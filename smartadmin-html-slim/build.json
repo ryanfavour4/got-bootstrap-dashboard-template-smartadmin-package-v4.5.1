@@ -1,0 +1,247 @@
+{
+	"config": {
+		"debug": false,
+		"data": {
+			"app": "SmartAdmin",
+			"app-name": "SmartAdmin WebApp",
+			"app-flavor": "SmartAdmin WebApp",
+			"app-flavor-subscript": "SLIM Project",
+			"user": "Dr. Codex Lantern",
+			"email": "drlantern@gotbootstrap.com",
+			"twitter": "codexlantern",
+			"avatar": "avatar-admin.png",
+			"version": "4.5.1",
+			"bs4v": "4.5",
+			"logo": "logo.png",
+			"logo-m": "logo.png",
+			"copyright": "2020 © SmartAdmin by&nbsp;<a href='https://www.gotbootstrap.com' class='text-primary fw-500' title='gotbootstrap.com' target='_blank'>gotbootstrap.com</a>",
+			"copyright-inverse": "2020 © SmartAdmin by&nbsp;<a href='https://www.gotbootstrap.com' class='text-white opacity-40 fw-500' title='gotbootstrap.com' target='_blank'>gotbootstrap.com</a>",
+			"iconPrefix": "fal",
+			"layoutSettings": false,
+			"chatInterface": false,
+			"shortcutMenu": false,
+			"appLayoutShortcut": false,
+			"appShortcutModal": false,
+			"appHeader": true,
+			"appFooter": true,
+			"appSidebar": true,
+			"productionReady": false
+		},
+		"compile": {
+			"jsUglify": false,
+			"cssMinify": false,
+			"jsSourcemaps": false,
+			"cssSourcemaps": true,
+			"autoprefixer": true,
+			"seedOnly": true,
+			"rtl": false
+		},
+		"path": {
+			"src": "./src",
+			"node_modules": "./node_modules",
+			"exportPath": "./src/template/include/_nav.hbs",
+			"outputPath": "./src/template/include"
+		},
+		"dist": {
+			"theme": {
+				"path": "./dist"
+			}
+		}
+	},
+	"build": {
+		"vendors": {
+			"base": {
+				"src": {
+					"required": {
+						"jquery": {
+							"scripts": [
+								"{$config.path.node_modules}/jquery/dist/jquery.js"
+							]
+						},
+						"jquery-ui": {
+							"scripts": [
+								"{$config.path.src}/custom/plugins/jquery-ui-cust/jquery-ui-cust.js"
+							]
+						},
+						"bootstrap": {
+							"styles": [
+								"{$config.path.src}/scss/bootstrap.scss"
+							],
+							"scripts": [
+								"{$config.path.node_modules}/popper.js/dist/umd/popper.js",
+								"{$config.path.node_modules}/bootstrap/dist/js/bootstrap.js"
+							]
+						},
+						"jquery-snippets": {
+							"scripts": [
+								"{$config.path.src}/custom/plugins/jquery-snippets/jquery-snippets.js"
+							]
+						},
+						"throttle-debounce": {
+							"scripts": [
+								"{$config.path.node_modules}/jquery-throttle-debounce/jquery.ba-throttle-debounce.js"
+							]
+						},
+						"webfonts": {
+							"styles": [
+								"{$config.path.src}/scss/app.icons.scss"
+							],
+							"fonts": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/webfonts/**",
+								"{$config.path.src}/custom/webfonts/nextgen-fonts-master/webfonts/**",
+								"{$config.path.src}/custom/webfonts/plugins/summernote/**"
+							]
+						}
+					},
+					"optional": {
+						"app-images": {
+							"images": [
+								"{$config.path.src}/img/**"
+							]
+						},
+						"app-data": {
+							"json": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/used-for-demo-pages/*.json",
+								"{$config.path.src}/custom/webfonts/nextgen-fonts-master/used-for-demo-pages/*.json",
+								"{$config.path.src}/custom/plugins/datatables/demo-data/*.json",
+								"{$config.path.src}/custom/docs-data/*.json",
+								"{$config.path.src}/custom/lang/*.json"
+							]
+						},
+						"app-media": {
+							"media": [
+								"{$config.path.src}/custom/media/**"
+							]
+						}
+					}
+				},
+				"bundle": {
+					"styles": "{$config.output}/css/vendors.bundle.css",
+					"scripts": "{$config.output}/js/vendors.bundle.js",
+					"images": "{$config.output}/img",
+					"fonts": "{$config.output}/webfonts",
+					"json": "{$config.output}/media/data/",
+					"media": "{$config.output}/media"
+				}
+			},
+			"custom": {
+				"json-path-picker": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/custom/plugins/json-path-picker/jsonpath-picker.scss"
+						],
+						"scripts": [
+							"{$config.path.src}/custom/plugins/json-path-picker/jsonpath-picker.js"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/json-path-picker/json-path-picker.css",
+						"scripts": "{$config.output}/js/json-path-picker/json-path-picker.js"
+					}
+				},
+				"fontawesome": {
+					"light": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/scss/light.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/fa-light.scss"
+						}
+					},
+					"regular": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/scss/regular.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/fa-regular.scss"
+						}
+					},
+					"solid": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/scss/solid.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/fa-solid.scss"
+						}
+					},
+					"duotone": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/scss/duotone.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/fa-duotone.scss"
+						}
+					},
+					"brand": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/scss/brands.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/fa-brands.scss"
+						}
+					}
+				}
+			}
+		},
+		"app": {
+			"base": {
+				"src": {
+					"styles": [
+						"{$config.path.src}/scss/app.core.scss"
+					],
+					"scripts": [
+						"{$config.path.src}/js/_config/app.config.js",
+						"{$config.path.src}/js/_modules/app.navigation.js",
+						"{$config.path.src}/js/_modules/app.menu.slider.js",
+						"{$config.path.src}/js/_modules/app.init.js",
+						"{$config.path.src}/js/_modules/app.layout.shortcuts.js",
+						"{$config.path.src}/js/_modules/app.resize.trigger.js",
+						"{$config.path.src}/js/_modules/app.scroll.trigger.js",
+						"{$config.path.src}/js/_modules/app.domReady.js",
+						"{$config.path.src}/js/_modules/app.orientationchange.js",
+						"{$config.path.src}/js/_modules/app.window.load.js",
+						"{$config.path.src}/js/_config/app.colors.js"
+					]
+				},
+				"bundle": {
+					"styles": "{$config.output}/css/app.bundle.css",
+					"scripts": "{$config.output}/js/app.bundle.js"
+				}
+			},
+			"demo": {
+				"theme": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/theme-demo.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/theme-demo.css"
+					}
+				}
+			},
+			"skins": {
+				"skin-master": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_skins/skin-master.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/skins/skin-master.css"
+					}
+				}
+			}
+		}
+	}
+}

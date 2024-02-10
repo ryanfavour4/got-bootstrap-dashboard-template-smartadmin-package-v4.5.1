@@ -1,0 +1,400 @@
+{
+	"config": {
+		"debug": false,
+		"data": {
+			"app": "SmartAdmin",
+			"app-name": "SmartAdmin WebApp",
+			"app-flavor": "SmartAdmin WebApp",
+			"app-flavor-subscript": "AjaxSeed",
+			"user": "Dr. Codex Lantern",
+			"email": "drlantern@gotbootstrap.com",
+			"twitter": "codexlantern",
+			"avatar": "avatar-admin.png",
+			"version": "4.0.2",
+			"bs4v": "4.3",
+			"logo": "logo.png",
+			"logo-m": "logo.png",
+			"copyright": "2019 © SmartAdmin by&nbsp;<a href='https://www.gotbootstrap.com' class='text-primary fw-500' title='gotbootstrap.com' target='_blank'>gotbootstrap.com</a>",
+			"copyright-inverse": "2019 © SmartAdmin by&nbsp;<a href='https://www.gotbootstrap.com' class='text-white opacity-40 fw-500' title='gotbootstrap.com' target='_blank'>gotbootstrap.com</a>",
+			"layoutSettings": true,
+			"chatInterface": true,
+			"shortcutMenu": true,
+			"appLayoutShortcut": true,
+			"appShortcutModal": true,
+			"appHeader": true,
+			"appFooter": true,
+			"appSidebar": true
+		},
+		"compile": {
+			"jsUglify": false,
+			"cssMinify": false,
+			"jsSourcemaps": false,
+			"cssSourcemaps": true,
+			"autoprefixer": true,
+			"seedOnly": true
+		},
+		"path": {
+			"src": "./src",
+			"node_modules": "./node_modules",
+			"exportPath": "./src/template/include/_nav.hbs",
+			"outputPath": "./src/template/include"
+		},
+		"dist": {
+			"theme": {
+				"path": "./dist"
+			}
+		}
+	},
+	"build": {
+		"vendors": {
+			"base": {
+				"src": {
+					"required": {
+						"pace-js": {
+							"scripts": [
+								"{$config.path.node_modules}/pace-js/pace.js"
+							]
+						},
+						"jquery": {
+							"scripts": [
+								"{$config.path.node_modules}/jquery/dist/jquery.js"
+							]
+						},
+						"jquery-ui": {
+							"scripts": [
+								"{$config.path.src}/custom/plugins/jquery-ui-cust/jquery-ui-cust.js"
+							]
+						},
+						"bootstrap": {
+							"styles": [
+								"{$config.path.src}/scss/bootstrap.scss"
+							],
+							"scripts": [
+								"{$config.path.node_modules}/popper.js/dist/umd/popper.js",
+								"{$config.path.node_modules}/bootstrap/dist/js/bootstrap.js"
+							]
+						},
+						"bootbox": {
+							"scripts": [
+								"{$config.path.src}/custom/plugins/bootbox/bootbox-cust.js",
+								"{$config.path.src}/custom/plugins/bootbox/bootbox-config.js"
+							]
+						},
+						"jquery-snippets": {
+							"scripts": [
+								"{$config.path.src}/custom/plugins/jquery-snippets/jquery-snippets.js"
+							]
+						},
+						"throttle-debounce": {
+							"scripts": [
+								"{$config.path.node_modules}/jquery-throttle-debounce/jquery.ba-throttle-debounce.js"
+							]
+						},
+						"webfonts": {
+							"styles": [
+								"{$config.path.src}/scss/app.icons.scss"
+							],
+							"fonts": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/webfonts/**",
+								"{$config.path.src}/custom/webfonts/nextgen-fonts-master/webfonts/**",
+								"{$config.path.src}/custom/webfonts/plugins/summernote/**"
+							]
+						}
+					},
+					"optional": {
+						"jquery-slimscroll": {
+							"scripts": [
+								"{$config.path.node_modules}/jquery-slimscroll/jquery.slimscroll.js"
+							]
+						},
+						"waves": {
+							"scripts": [
+								"{$config.path.node_modules}/node-waves/dist/waves.js"
+							]
+						},
+						"smartpanels": {
+							"scripts": [
+								"{$config.path.src}/custom/plugins/smartpanels/smartpanels.js"
+							]
+						},
+						"app-images": {
+							"images": [
+								"{$config.path.src}/img/**"
+							]
+						},
+						"app-data": {
+							"json": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/used-for-demo-pages/*.json",
+								"{$config.path.src}/custom/webfonts/nextgen-fonts-master/used-for-demo-pages/*.json",
+								"{$config.path.src}/custom/plugins/datatables/demo-data/*.json",
+								"{$config.path.src}/custom/docs-data/*.json",
+								"{$config.path.src}/custom/lang/*.json"
+							]
+						},
+						"app-media": {
+							"media": [
+								"{$config.path.src}/custom/media/**"
+							]
+						}
+					}
+				},
+				"bundle": {
+					"styles": "{$config.output}/css/vendors.bundle.css",
+					"scripts": "{$config.output}/js/vendors.bundle.js",
+					"images": "{$config.output}/img",
+					"fonts": "{$config.output}/webfonts",
+					"json": "{$config.output}/media/data/",
+					"media": "{$config.output}/media"
+				}
+			},
+			"custom": {
+				"holderjs": {
+					"src": {
+						"scripts": [
+							"{$config.path.node_modules}/holderjs/holder.js"
+						]
+					},
+					"bundle": {
+						"scripts": "{$config.output}/js/holder.js"
+					}
+				},
+				"i18next": {
+					"src": {
+						"scripts": [
+							"{$config.path.node_modules}/i18next-client/i18next.js"
+						]
+					},
+					"bundle": {
+						"scripts": "{$config.output}/js/i18n/i18n.js"
+					}
+				},
+				"fontawesome": {
+					"regular": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/scss/fa-regular.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/fa-regular.scss"
+						}
+					},
+					"solid": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/scss/fa-solid.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/fa-solid.scss"
+						}
+					},
+					"brand": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/custom/webfonts/fontawesome-pro-master/scss/fa-brands.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/fa-brands.scss"
+						}
+					}
+				}
+			}
+		},
+		"app": {
+			"base": {
+				"src": {
+					"styles": [
+						"{$config.path.src}/scss/app.core.scss"
+					],
+					"scripts": [
+						"{$config.path.src}/js/_config/app.config.js",
+						"{$config.path.src}/js/_modules/app.navigation.js",
+						"{$config.path.src}/js/_modules/app.menu.slider.js",
+						"{$config.path.src}/js/_modules/app.init.js",
+						"{$config.path.src}/js/_modules/app.resize.trigger.js",
+						"{$config.path.src}/js/_modules/app.scroll.trigger.js",
+						"{$config.path.src}/js/_modules/app.domReady.js",
+						"{$config.path.src}/js/_modules/app.orientationchange.js",
+						"{$config.path.src}/js/_modules/app.window.load.js",
+						"{$config.path.src}/js/_config/app.colors.js",
+						"{$config.path.src}/js/_modules/app.ajaxbehaviour.js"
+					]
+				},
+				"bundle": {
+					"styles": "{$config.output}/css/app.bundle.css",
+					"scripts": "{$config.output}/js/app.bundle.js"
+				}
+			},
+			"custom": {
+				"auth": {
+					"login": {
+						"src": {
+							"styles": [
+								"{$config.path.src}/content/pages/page_login/page-login.scss"
+							]
+						},
+						"bundle": {
+							"styles": "{$config.output}/css/page-login.css"
+						}
+					}
+				},
+				"invoice": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/content/pages/page_invoice/page-invoice.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/page-invoice.css"
+					}
+				}
+			},
+			"demo": {
+				"theme": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/theme-demo.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/theme-demo.css"
+					}
+				}
+			},
+			"themes": {
+				"theme-1": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-1.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-1.css"
+					}
+				},
+				"theme-2": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-2.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-2.css"
+					}
+				},
+				"theme-3": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-3.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-3.css"
+					}
+				},
+				"theme-4": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-4.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-4.css"
+					}
+				},
+				"theme-5": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-5.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-5.css"
+					}
+				},
+				"theme-6": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-6.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-6.css"
+					}
+				},
+				"theme-7": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-7.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-7.css"
+					}
+				},
+				"theme-8": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-8.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-8.css"
+					}
+				},
+				"theme-9": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-9.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-9.css"
+					}
+				},
+				"theme-10": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-10.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-10.css"
+					}
+				},
+				"theme-11": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-11.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-11.css"
+					}
+				},
+				"theme-12": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-12.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-12.css"
+					}
+				},
+				"theme-13": {
+					"src": {
+						"styles": [
+							"{$config.path.src}/scss/_themes/cust-theme-13.scss"
+						]
+					},
+					"bundle": {
+						"styles": "{$config.output}/css/themes/cust-theme-13.css"
+					}
+				}
+			}
+		}
+	}
+}
